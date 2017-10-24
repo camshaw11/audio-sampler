@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>audio</title>
+</head>
+
+	<style>
+		body {
+			display: inline-block;
+		}
+
+		#box1 {
+			width: 200px;
+			height: 200px;
+			background-color: lightblue;
+			display: inline-block;
+			margin: 20px;
+		}
+
+		#box2 {
+			width: 200px;
+			height: 200px;
+			background-color: lightgreen;
+			display: inline-block;
+			margin: 20px;
+		}
+		
+		#box3 {
+			width: 200px;
+			height: 200px;
+			background-color: orange;
+			display: inline-block;
+			margin: 20px;
+		}
+		
+	</style>
+<body>
+
+	<button onclick="myFunction()">Try it</button>
+
+	<p id="demo"></p>
+
+	<div id="box1">Play 1</div>
+
+	<div id="box2">Play 2</div>
+
+	<div id="box3">Play 3</div>
+
+	<script>
+
+	console.log(window.devicePixelRatio);
+	console.log(window.frames);
+	console.log(window.performance);
+	
+	function myFunction() {
+		var str = 'Hello World!';
+		var res = str.toUpperCase();
+		document.getElementById('demo').innerHTML = res;
+	}
+
+
+		init();
+		// this function is a function expression
+		var createAudio = function() {
+			window.newAudio1 = new Audio ();
+			newAudio1.src = 'a.wav';
+		
+			window.newAudio2 = new Audio ();
+			newAudio2.src = 'b.wav';
+
+			window.newAudio3 = new Audio ();
+			newAudio3.src = 'c.wav';
+		}();
+
+		// this function is called a function declaration
+		function init(){
+			var playButton = document.getElementById('box1');
+			playButton.addEventListener('click', playAudio1, false);
+
+			var playButton = document.getElementById('box2');
+			playButton.addEventListener('click', playAudio2, false);
+
+			var playButton = document.getElementById('box3');
+			playButton.addEventListener('click', playAudio3, false);
+		}
+
+		function playAudio1() {
+			newAudio1.play()
+		}
+		function playAudio2() {
+			newAudio2.play()
+		}
+		function playAudio3() {
+			newAudio3.play()
+		}
+
+	</script>
+</body>
+</html>
